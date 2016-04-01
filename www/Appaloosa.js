@@ -42,6 +42,13 @@ var Appaloosa = {
 	},
 
 	/**
+	 * Launch download of app's update
+	 */
+	downloadNewVersion : function (onSuccess, onError){
+		return exec(onSuccess, onError, "AppaloosaPhonegap", "downloadNewVersion", []);
+	},
+
+	/**
 	 * Leave the choice to the user to download or not the update
 	 */
 	autoUpdateWithMessage : function (title, message, onSuccess, onError){
@@ -83,15 +90,27 @@ var Appaloosa = {
 	 */
 	
 	status : {
-		UNKNOWN_APPLICATION : 'UNKNOWN_APPLICATION',
-        AUTHORIZED : 'AUTHORIZED',
-        UNREGISTERED_DEVICE : 'UNREGISTERED_DEVICE',
-        UNKNOWN_DEVICE : 'UNKNOWN_DEVICE',
-        NOT_AUTHORIZED : 'NOT_AUTHORIZED',
-        DEVICE_ID_FORMAT_ERROR : 'DEVICE_ID_FORMAT_ERROR',
-        NO_NETWORK : 'NO_NETWORK',
-        REQUEST_ERROR : 'REQUEST_ERROR',
-        UNKNOWN : 'UNKNOWN'
+		UNKNOWN_APPLICATION 	: 'UNKNOWN_APPLICATION',
+        AUTHORIZED 				: 'AUTHORIZED',
+        UNREGISTERED_DEVICE 	: 'UNREGISTERED_DEVICE',
+        UNKNOWN_DEVICE 			: 'UNKNOWN_DEVICE',
+        NOT_AUTHORIZED 			: 'NOT_AUTHORIZED',
+        DEVICE_ID_FORMAT_ERROR 	: 'DEVICE_ID_FORMAT_ERROR',
+        NO_NETWORK 				: 'NO_NETWORK',
+        REQUEST_ERROR 			: 'REQUEST_ERROR',
+        UNKNOWN 				: 'UNKNOWN'
+	},
+
+	/**
+	 * All update status
+	 */
+	
+	updateStatus : {
+		DEVICE_ID_FORMAT_ERROR 	: 'DEVICE_ID_FORMAT_ERROR',
+		UNREGISTERED_DEVICE 	: 'UNREGISTERED_DEVICE',
+		UNKNOWN_APPLICATION 	: 'UNKNOWN_APPLICATION',
+		UPDATE_NEEDED 			: 'UPDATE_NEEDED',
+		UPDATE_NOT_NEEDED 		: 'UPDATE_NOT_NEEDED'
 	}
 };
 

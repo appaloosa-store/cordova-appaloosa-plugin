@@ -5,6 +5,7 @@
 @implementation AppaloosaPhonegap
 
 CDVInvokedUrlCommand* commandAuthorization = nil;
+CDVInvokedUrlCommand* commandUpdate= nil;
 
 - (void)initialisation:(CDVInvokedUrlCommand*)command
 {
@@ -24,22 +25,74 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+
+/*
+* Check if an update is avaible
+*/
+
 - (void)autoUpdate: (CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
+    commandUpdate = command;
 
     @try {
         [[OTAppaloosaAgent sharedAgent] checkUpdates];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"ok"];
+        
     }
     @catch (NSException *exception) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exception.reason];
+        
+    }
+    @finally {
+        
+    }
+}
+
+
+/*
+ * Callback of autoUpdate function, call if user has an update available
+ */
+
+- (void)applicationUpdateRequestSuccessWithApplicationUpdateStatus:(OTAppaloosaUpdateStatus)appUpdateStatus {
+    NSString* status = [self convertUpdateStatusToString:appUpdateStatus];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:status];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:commandUpdate.callbackId];
+}
+
+
+/*
+ * Callback of autoUpdate function, call if something wrong occured during the update request.
+ */
+
+- (void)applicationUpdateRequestFailureWithError:(NSError *)error {
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:commandUpdate.callbackId];
+}
+
+
+/*
+ * Launch download of app's update
+ */
+
+- (void)downloadNewVersion: (CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    
+    @try {
+        [[OTAppaloosaAgent sharedAgent] downloadNewVersion];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    }
+    @catch (NSException *exception) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exception.description];
     }
     @finally {
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-
 }
+
+
+/*
+* Check authorizations and call applicationAuthorizationsAllowed or applicationAuthorizationsNotAllowedWithStatus
+*/
 
 - (void)authorization:(CDVInvokedUrlCommand*)command
 {
@@ -56,11 +109,22 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
 }
 
 
+
+/*
+* Callback of checkAuthorizations function, call if user has the authorization
+*/
+
 - (void)applicationAuthorizationsAllowed{
 
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"ok"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:commandAuthorization.callbackId];
 }
+
+
+/*
+* Callback of checkAuthorizations function, call if user has NOT the authorization.
+* Return OTAppaloosaAutorizationsStatus in javascrit callback error function
+*/
 
 - (void)applicationAuthorizationsNotAllowedWithStatus:(OTAppaloosaAutorizationsStatus)status andMessage:(NSString *)message{
 
@@ -71,6 +135,11 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:message];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:commandAuthorization.callbackId];
 }
+
+
+/*
+* Convert enum OTAppaloosaAutorizationsStatus to NSString constant
+*/
 
 - (NSString*) convertToString:(OTAppaloosaAutorizationsStatus) whichStatus {
     NSString* status = nil;
@@ -112,6 +181,46 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
 }
 
 
+/*
+* Convert enum OTAppaloosaUpdateStatus to NSString constant
+*/
+
+- (NSString*) convertUpdateStatusToString:(OTAppaloosaUpdateStatus) whichStatus {
+    NSString* status = nil;
+    
+    switch (whichStatus) {
+        case OTAppaloosaUpdateStatusDeviceIdFormatError:
+            status = @"DEVICE_ID_FORMAT_ERROR";
+            break;
+            
+        case OTAppaloosaUpdateStatusUnregisteredDevice:
+            status = @"UNREGISTERED_DEVICE";
+            break;
+            
+        case OTAppaloosaUpdateStatusUnknownApplication:
+            status = @"UNKNOWN_APPLICATION";
+            break;
+            
+        case OTAppaloosaUpdateStatusUpdateNeeded:
+            status = @"UPDATE_NEEDED";
+            break;
+            
+        case OTAppaloosaUpdateStatusNoUpdateNeeded:
+            status = @"UPDATE_NOT_NEEDED";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return status;
+}
+
+
+/*
+ * Display a button to call dev panel which gives information about the device and the application
+ */
+
 - (void)devPanelWithDefaultButtonAtPosition: (CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
@@ -137,6 +246,9 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
 
 }
 
+/*
+ * Trigger dev panel which gives information about the device and the application. Call it if you want your owner button
+ */
 
 - (void)openDevPanelController: (CDVInvokedUrlCommand*)command
 {
@@ -154,6 +266,10 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
     }
 }
 
+
+/*
+ * Display a button to send feedback to your dev team
+ */
 
 - (void)feedbackControllerWithDefaultButtonAtPosition: (CDVInvokedUrlCommand*)command
 {
@@ -183,6 +299,11 @@ CDVInvokedUrlCommand* commandAuthorization = nil;
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
+
+
+/*
+ * Send feedback to your dev team. Call it if you want your owner button
+ */
 
 - (void)openFeedbackControllerWithRecipientsEmailArray: (CDVInvokedUrlCommand*)command
 {

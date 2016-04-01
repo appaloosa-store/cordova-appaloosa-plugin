@@ -64,16 +64,33 @@ To record analytics on your app usage, simply add the following line at the star
 ```
  Appaloosa.startAnalytics(functionOnSuccess,functionOnError);
 ```
+
+
 ###Auto-Update
 This library allows you to encourage updates by forcing the download of the new update when the application starts. Simply add the following line to your code :
 
 ```
  Appaloosa.autoUpdate(functionOnSuccess,functionOnError);
 ```
-On **Android**, if your prefer to leave the choice to the user to download or not the update, the following method will suit your needs :
+On **iOS**,  the `functionOnSuccess` return a OTAppaloosaUpdateStatus, which can be:
+
+* DEVICE_ID_FORMAT_ERROR
+* UNREGISTERED_DEVICE
+* UNKNOWN_APPLICATION
+* UPDATE_NEEDED
+* UPDATE_NOT_NEEDED
+
+If update is required, you can call this following line to download the new version.
+```
+Appaloosa.downloadNewVersion(functionOnSuccess,functionOnError);
+```
+
+On **Android**, autoUpdate function will appear an Alert view if update is required. If your prefer to leave the choice to the user to download or not the update, the following method will suit your needs :
 ```
  Appaloosa.autoUpdateWithMessage(title, message, functionOnSuccess,functionOnError);
 ```
+
+
 
 ## iOS
 ###Add the dev panel to your app

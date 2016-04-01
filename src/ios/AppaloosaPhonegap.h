@@ -8,9 +8,13 @@
 
 - (void)autoUpdate:(CDVInvokedUrlCommand*)command;
 
+- (void)downloadNewVersion: (CDVInvokedUrlCommand*)command;
+
 - (void)authorization :(CDVInvokedUrlCommand*)command;
 
 - (NSString*) convertToString:(OTAppaloosaAutorizationsStatus) whichStatus;
+
+- (NSString*) convertUpdateStatusToString:(OTAppaloosaUpdateStatus) whichStatus;
 
 - (void)devPanelWithDefaultButtonAtPosition: (CDVInvokedUrlCommand*)command;
 
