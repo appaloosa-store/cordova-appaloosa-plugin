@@ -1,10 +1,7 @@
 
 # Apache Cordova Appaloosa Plugin 
 
-This is a plugin to allow you to use Appaloosa SDK to:
-
-  - Check Update and make user to download new version or let him the choice
-  - Use Appaloosa Analytics
+This is a plugin to allow you to use Appaloosa iOS and Android SDK
 
 Please refer to the [official repository][repoOfficial] to have more information
 
@@ -14,18 +11,18 @@ Please refer to the [official repository][repoOfficial] to have more information
 - A native store must have been created for your account
 - At least one login on the native store
 
+## Supported Platforms
+
+* Android
+* iOS
 
 ## Installation
-Just add the plugin to your app:
 
-```sh
-$ cordova plugin add https://github.com/sqli/cordova-plugin-appaloosa.git
 ```
-Save it if you want plugin will be added with `cordova prepare` in the futur
+cordova plugin add cordova-plugin-appaloosa
+```
 
-```sh
-$ cordova plugin -save
-```
+
 ## Utilisation
 When the plugin will be added in the app, you can access to the APIs in `window.Appaloosa` object.
 A sample is available [on this repo][repoSample] HAVE TO BE UPDATED!!
@@ -128,6 +125,76 @@ If you prefer using your own button/action to trigger the dev panel, you can use
  Appaloosa.openFeedbackControllerWithRecipientsEmailArray(emails, functionOnSuccess,functionOnError);
 ```
 
+## Example
+
+
+```
+angular.module('starter.service', [])
+    .factory('AppaloosaService', function ($log) {
+
+    var _Appaloosa;
+    var _isInitialized = false;
+	var isAuthorized = false;
+
+    function init(appaloosaStoreId, appaloosaStoreToken) {
+
+        if (window.Appaloosa) {
+
+            _Appaloosa = window.Appaloosa;
+
+            _Appaloosa.initialisation(appaloosaStoreId, appaloosaStoreToken,
+            function(msg){
+                console.log(msg);
+                _isInitialized = true;
+                 _isAuthorized = true;
+                checkAuthorization();
+            },
+            function(){
+                console.log("Initialisation error");
+            });
+        } else {
+            $log.info('Appaloosa is undefined');
+        }
+    }
+
+	function checkAuthorization(){
+       if(_isInitialized){
+           _Appaloosa.authorization(function (status){
+                   console.log("status: " + status);
+                   _isAuthorized = true;
+                   autoUpdate();
+               },
+               function (errorMessage){
+                   console.log("Unauthorized: " + errorMessage);
+               })
+       }
+    }
+
+	function autoUpdate(){
+
+        if(_isInitialized && _isAuthorized){
+	        devPanelWithDefaultButtonAtPosition("bottomRight");  
+	        
+            _Appaloosa.autoUpdate(function (status) {
+                
+                if(status === _Appaloosa.updateStatus.UPDATE_NEEDED){
+                    _Appaloosa.downloadNewVersion(function(){
+                        console.log("Downloading... Done");
+                    },
+                    function(error){
+                        console.log(error);
+                    });
+                }
+
+            }, function (errorMsg) {
+                console.warning("error: " + errorMsg);
+            });
+        }
+        else{
+            $log.info('Veuillez vérifier vos autorisations');
+        }
+    }
+```
 
 [repoOfficial]: <https://github.com/appaloosa-store/appaloosa-android-tools>
 [repoSample]:<https://github.com/appaloosa-store/appaloosa-android-tools>
