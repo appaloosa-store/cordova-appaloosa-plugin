@@ -1,0 +1,17 @@
+repositories{    
+  jcenter()
+
+}
+
+dependencies {
+   compile('com.appaloosa-store:appaloosa-android-tools:0.3.3@aar') {
+        transitive=true
+    }
+}
+
+android {
+  packagingOptions {
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+}

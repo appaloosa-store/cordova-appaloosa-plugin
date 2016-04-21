@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-appaloosa" version="0.1.0">
+
+    <name>Appaloosa</name>
+    <description>Cordova Appaloosa Plugin</description>
+    <license>The MIT License (MIT)</license>
+
+    <keywords>cordova,appaloosa</keywords>
+    <author>SQLI Lab mobilité (su.mobility@sqli.com)</author>
+    <author>Nicolas Hodicq (nhodicq@sqli.com)</author>
+
+    <repo>https://github.com/appaloosa-store/cordova-appaloosa-plugin</repo>
+    <issue>https://github.com/appaloosa-store/cordova-appaloosa-plugin/issues</issue>
+
+    <js-module src="www/Appaloosa.js" name="Appaloosa">
+        <clobbers target="Appaloosa"/>"
+    </js-module>
+	
+	
+	 <!-- ANDROID PLATFORM -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AppaloosaPhonegap">
+                <param name="android-package" value="com.appaloosa.cordova.plugin.AppaloosaPhonegap"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <!--PERMISSIONS-->
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        </config-file>
+
+        <!-- CORDOVA SOURCE FILES -->
+        <source-file src="src/android/AppaloosaPhonegap.java" target-dir="src/com/appaloosa/cordova/plugin" />
+        <source-file src="src/android/ApplicationAuthorizationCustom.java" target-dir="src/com/appaloosa/cordova/plugin" />
+
+        <!-- ADDTIONNAL LIBRAIRIES -->
+		<framework src="src/android/appaloosa.gradle" custom="true" type="gradleReference" />
+
+    </platform>
+
+    <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="AppaloosaPhonegap">
+        <param name="ios-package" value="AppaloosaPhonegap"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/AppaloosaPhonegap.h" />
+    <source-file src="src/ios/AppaloosaPhonegap.m" />
+
+    <header-file src="libs/ios/TPKeyboardAvoidingCollectionView.h" />
+    <source-file src="libs/ios/TPKeyboardAvoidingCollectionView.m" />
+
+    <header-file src="libs/ios/TPKeyboardAvoidingScrollView.h" />
+    <source-file src="libs/ios/TPKeyboardAvoidingScrollView.m" />
+
+    <header-file src="libs/ios/TPKeyboardAvoidingTableView.h" />
+    <source-file src="libs/ios/TPKeyboardAvoidingTableView.m" />
+
+    <header-file src="libs/ios/UIScrollView+TPKeyboardAvoidingAdditions.h" />
+    <source-file src="libs/ios/UIScrollView+TPKeyboardAvoidingAdditions.m" />
+
+    <!-- separator library -->
+
+    <header-file src="libs/ios/NSString+MD5Addition.h" />
+    <source-file src="libs/ios/NSString+MD5Addition.m" />
+
+    <header-file src="libs/ios/UIDevice+IdentifierAddition.h" />
+    <source-file src="libs/ios/UIDevice+IdentifierAddition.m" />
+
+    <!-- separator library -->
+
+    <header-file src="libs/ios/Reachability.h" />
+    <source-file src="libs/ios/Reachability.m" />
+
+    <!-- separator library -->
+
+    <header-file src="libs/ios/MF_Base64Additions.h" />
+    <source-file src="libs/ios/MF_Base64Additions.m" />
+
+    <!-- separator library -->
+
+    <header-file src="libs/ios/SFHFKeychainUtils.h" />
+    <source-file src="libs/ios/SFHFKeychainUtils.m" />
+
+    <!-- OTAppaloosa library -->
+
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomDevPanel.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomDevPanel@2x.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomFeedback.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomFeedback@2x.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightDevPanel.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightDevPanel@2x.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightFeedback.png" />
+    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightFeedback@2x.png" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/OTAppaloosa.h" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.m" />
+    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.xib" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController.m" />
+    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController~ipad.xib" />
+    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController~iphone.xib" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaActionButtonsManager.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaActionButtonsManager.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgent.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgent.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgentDelegate.h" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaApplication.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaApplication.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaConfigProperty.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaConfigProperty.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationAuthorization.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationAuthorization.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationUpdate.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationUpdate.m" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaService.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaService.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaSystemPropertyService.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaSystemPropertyService.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaUrlHelper.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaUrlHelper.m" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/NSString+URLEncoding.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/NSString+URLEncoding.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaActionButtonUtil.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaActionButtonUtil.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaUtils.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaUtils.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/UIColor+Appaloosa.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/UIColor+Appaloosa.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/UIViewController+CurrentPresentedController.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/UIViewController+CurrentPresentedController.m" />
+
+    <header-file src="libs/ios/OTAppaloosa/Classes/View/SSTextView.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/View/SSTextView.m" />
+    <header-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.h" />
+    <source-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.m" />
+    <resource-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.xib" />
+
+    </platform>
+</plugin>
