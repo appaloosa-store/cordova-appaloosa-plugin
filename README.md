@@ -1,3 +1,7 @@
+Disclaimer:
+
+This software is an Alpha version. Use at your own risks.
+
 
 # Apache Cordova Appaloosa Plugin 
 
