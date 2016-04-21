@@ -1,6 +1,6 @@
 {
   "name"       : "cordova-plugin-appaloosa",
-  "version"    : "1.0.0-dev",
+  "version"    : "1.0.1-dev",
   "description": "Cordova Appaloosa plugin",
   "cordova"    : {
     "id"       : "cordova-plugin-appaloosa",
