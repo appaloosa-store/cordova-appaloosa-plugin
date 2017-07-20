@@ -91,44 +91,6 @@ On **Android**, autoUpdate function will appear an Alert view if update is requi
  Appaloosa.autoUpdateWithMessage(title, message, functionOnSuccess,functionOnError);
 ```
 
-
-
-## iOS
-###Add the dev panel to your app
-The Appaloosa's SDK also provides a dev panel which gives information about the device and the application. To use it call:
-
-```
- Appaloosa.devPanelWithDefaultButtonAtPosition(position, functionOnSucess,functionOnError);
-```
-
-In order to set the button on the right side at the bottom, or on the bottom side on the right, replace `position` variable with ` "rightBottom" ` for the first position or ` "bottomRight" `  for the second.
-
-If you prefer using your own button/action to trigger the dev panel, you can use the following line in your onClick:
-
-```
- Appaloosa.openDevPanelController(functionOnSucess,functionOnError);
-```
-Think to init with `Appaloosa.initialisation` function before call it.
-
-###Add in-app-feedback to your app
-
-The Appaloosa's SDK provides a fully integrated solution to send feedback to your dev team. To use it add the following line:
-
-```
- Appaloosa.feedbackControllerWithDefaultButtonAtPosition(position, emails, functionOnSuccess,functionOnError);
-```
-
-In order to set the button on the right side at the bottom, or on the bottom side on the right, replace `position` variable with ` "rightBottom" ` for the first position or ` "bottomRight" `  for the second.
-
-The `emails` variable has to be a string separated with a comma like it:
-`"email1@company.com,email2@company.com"`. If uncessary, set `null`.
-
-If you prefer using your own button/action to trigger the dev panel, you can use the following line in your onClick:
-
-```
- Appaloosa.openFeedbackControllerWithRecipientsEmailArray(emails, functionOnSuccess,functionOnError);
-```
-
 ## Example
 
 
