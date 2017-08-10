@@ -16,12 +16,4 @@
 
 - (NSString*) convertUpdateStatusToString:(OTAppaloosaUpdateStatus) whichStatus;
 
-- (void)devPanelWithDefaultButtonAtPosition: (CDVInvokedUrlCommand*)command;
-
-- (void)openDevPanelController: (CDVInvokedUrlCommand*)command;
-
-- (void)feedbackControllerWithDefaultButtonAtPosition: (CDVInvokedUrlCommand*)command;
-
-- (void)openFeedbackControllerWithRecipientsEmailArray: (CDVInvokedUrlCommand*)command;
-
 @end
