@@ -31,13 +31,13 @@ cordova plugin add cordova-plugin-appaloosa
 When the plugin will be added in the app, you can access to the APIs in `window.Appaloosa` object.
 A sample is available [on this repo][repoSample] HAVE TO BE UPDATED!!
 
-###Initialization
+### Initialization
 Add the following line at the start of your application
 ```
  Appaloosa.initialisation(YOUR_APPALOOSA_STORE_ID, YOUR_APPALOOSA_STORE_TOKEN, functionOnSucess,functionOnError);
 ```
 
-###Authorization
+### Authorization
 This library provides an app authorization mechanism. Via Appaloosa web admin on https://www.appaloosa-store.com, you can manage a per device access. It works by sending device information to the Appaloosa servers. In case of an offline access to your app, the status is read from a protected file on the device.
 ```
  Appaloosa.authorization(functionOnSuccess,functionOnError);
@@ -45,7 +45,7 @@ This library provides an app authorization mechanism. Via Appaloosa web admin on
 The twice function have status in parameters. Use it and the ``Appaloosa.status`` to compare return value.
 
 
-####Appaloosa status available:
+#### Appaloosa status available:
 * UNKNOWN_APPLICATION*
 * AUTHORIZED
 * UNREGISTERED_DEVICE
@@ -58,7 +58,7 @@ The twice function have status in parameters. Use it and the ``Appaloosa.status`
 
 **Can not be returned because not exist on iOS*
 
-###Analytics
+### Analytics
 
 To record analytics on your app usage, simply add the following line at the start of your application. Be careful to be authorized before with `Appaloosa.authorization` function.
 
@@ -67,7 +67,7 @@ To record analytics on your app usage, simply add the following line at the star
 ```
 
 
-###Auto-Update
+### Auto-Update
 This library allows you to encourage updates by forcing the download of the new update when the application starts. Simply add the following line to your code :
 
 ```
