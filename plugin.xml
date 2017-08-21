@@ -56,100 +56,52 @@
     <header-file src="src/ios/AppaloosaPhonegap.h" />
     <source-file src="src/ios/AppaloosaPhonegap.m" />
 
-    <header-file src="libs/ios/TPKeyboardAvoidingCollectionView.h" />
-    <source-file src="libs/ios/TPKeyboardAvoidingCollectionView.m" />
+    <resource-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/Info.plist" />
 
-    <header-file src="libs/ios/TPKeyboardAvoidingScrollView.h" />
-    <source-file src="libs/ios/TPKeyboardAvoidingScrollView.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/BCCKeychain.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/BCCKeychain.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/MF_Base64Additions.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/MF_Base64Additions.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/NSString+MD5Addition.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/NSString+MD5Addition.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/Reachability.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/Reachability.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/UIDevice+IdentifierAddition.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/libs/UIDevice+IdentifierAddition.m" />
+    
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/manager/OTAppaloosaAgent.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/manager/OTAppaloosaAgent.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/manager/OTAppaloosaAgentDelegate.h" />
+    
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTAppaloosaApplication.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTAppaloosaApplication.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTAppaloosaConfigProperty.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTAppaloosaConfigProperty.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTApplicationAuthorization.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTApplicationAuthorization.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTApplicationUpdate.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/model/OTApplicationUpdate.m" />
 
-    <header-file src="libs/ios/TPKeyboardAvoidingTableView.h" />
-    <source-file src="libs/ios/TPKeyboardAvoidingTableView.m" />
-
-    <header-file src="libs/ios/UIScrollView+TPKeyboardAvoidingAdditions.h" />
-    <source-file src="libs/ios/UIScrollView+TPKeyboardAvoidingAdditions.m" />
-
-    <!-- separator library -->
-
-    <header-file src="libs/ios/NSString+MD5Addition.h" />
-    <source-file src="libs/ios/NSString+MD5Addition.m" />
-
-    <header-file src="libs/ios/UIDevice+IdentifierAddition.h" />
-    <source-file src="libs/ios/UIDevice+IdentifierAddition.m" />
-
-    <!-- separator library -->
-
-    <header-file src="libs/ios/Reachability.h" />
-    <source-file src="libs/ios/Reachability.m" />
-
-    <!-- separator library -->
-
-    <header-file src="libs/ios/MF_Base64Additions.h" />
-    <source-file src="libs/ios/MF_Base64Additions.m" />
-
-    <!-- separator library -->
-
-    <header-file src="libs/ios/SFHFKeychainUtils.h" />
-    <source-file src="libs/ios/SFHFKeychainUtils.m" />
-
-    <!-- OTAppaloosa library -->
-
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomDevPanel.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomDevPanel@2x.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomFeedback.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_bottomFeedback@2x.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightDevPanel.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightDevPanel@2x.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightFeedback.png" />
-    <resource-file src="libs/ios/OTAppaloosa/Resources/Images/btn_rightFeedback@2x.png" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/OTAppaloosa.h" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.m" />
-    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaDevPanelViewController.xib" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController.m" />
-    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController~ipad.xib" />
-    <resource-file src="libs/ios/OTAppaloosa/Classes/Controller/OTAppaloosaInAppFeedbackViewController~iphone.xib" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaActionButtonsManager.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaActionButtonsManager.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgent.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgent.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Manager/OTAppaloosaAgentDelegate.h" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaApplication.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaApplication.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaConfigProperty.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTAppaloosaConfigProperty.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationAuthorization.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationAuthorization.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationUpdate.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Model/OTApplicationUpdate.m" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaService.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaService.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaSystemPropertyService.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaSystemPropertyService.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaUrlHelper.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Service/OTAppaloosaUrlHelper.m" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/NSString+URLEncoding.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/NSString+URLEncoding.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaActionButtonUtil.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaActionButtonUtil.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaUtils.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/OTAppaloosaUtils.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/UIColor+Appaloosa.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/UIColor+Appaloosa.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/Utils/UIViewController+CurrentPresentedController.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/Utils/UIViewController+CurrentPresentedController.m" />
-
-    <header-file src="libs/ios/OTAppaloosa/Classes/View/SSTextView.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/View/SSTextView.m" />
-    <header-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.h" />
-    <source-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.m" />
-    <resource-file src="libs/ios/OTAppaloosa/Classes/View/Cell/ConfigPropertyCell/OTConfigPropertyCell.xib" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/OTAppaloosa.h" />
+    
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaService.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaService.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaSystemPropertyService.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaSystemPropertyService.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaUrlHelper.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/service/OTAppaloosaUrlHelper.m" />
+    
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/NSString+URLEncoding.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/NSString+URLEncoding.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/OTAppaloosaUtils.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/OTAppaloosaUtils.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/UIColor+Appaloosa.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/UIColor+Appaloosa.m" />
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/UIViewController+CurrentPresentedController.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/utils/UIViewController+CurrentPresentedController.m" />
+    
+    <header-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/view/SSTextView.h" />
+    <source-file src="libs/ios/OTAppaloosa/AppaloosaIosSDK/view/SSTextView.m" />
 
     </platform>
 </plugin>
