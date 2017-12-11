@@ -29,13 +29,14 @@ cordova plugin add cordova-plugin-appaloosa
 
 ## Utilisation
 When the plugin will be added in the app, you can access to the APIs in `window.Appaloosa` object.
-A sample is available [on this repo][repoSample] HAVE TO BE UPDATED!!
+A sample is available [on this repo][repoSample].
 
 ### Initialization
 Add the following line at the start of your application
 ```
  Appaloosa.initialisation(YOUR_APPALOOSA_STORE_ID, YOUR_APPALOOSA_STORE_TOKEN, functionOnSucess,functionOnError);
 ```
+YOUR_APPALOOSA_STORE_ID should be an integer and not a string.
 
 ### Authorization
 This library provides an app authorization mechanism. Via Appaloosa web admin on https://www.appaloosa-store.com, you can manage a per device access. It works by sending device information to the Appaloosa servers. In case of an offline access to your app, the status is read from a protected file on the device.
@@ -55,16 +56,6 @@ The twice function have status in parameters. Use it and the ``Appaloosa.status`
 * NO_NETWORK
 * REQUEST_ERROR
 * UNKNOWN
-
-**Can not be returned because not exist on iOS*
-
-### Analytics
-
-To record analytics on your app usage, simply add the following line at the start of your application. Be careful to be authorized before with `Appaloosa.authorization` function.
-
-```
- Appaloosa.startAnalytics(functionOnSuccess,functionOnError);
-```
 
 
 ### Auto-Update
@@ -162,5 +153,5 @@ angular.module('starter.service', [])
     }
 ```
 
-[repoOfficial]: <https://github.com/appaloosa-store/appaloosa-android-tools>
-[repoSample]:<https://github.com/appaloosa-store/appaloosa-android-tools>
+[repoOfficial]: <https://github.com/appaloosa-store/cordova-plugin-appaloosa>
+[repoSample]:<https://github.com/appaloosa-store/cordova_sample_app>
