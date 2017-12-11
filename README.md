@@ -36,6 +36,7 @@ Add the following line at the start of your application
 ```
  Appaloosa.initialisation(YOUR_APPALOOSA_STORE_ID, YOUR_APPALOOSA_STORE_TOKEN, functionOnSucess,functionOnError);
 ```
+YOUR_APPALOOSA_STORE_ID should be an integer and not a string.
 
 ### Authorization
 This library provides an app authorization mechanism. Via Appaloosa web admin on https://www.appaloosa-store.com, you can manage a per device access. It works by sending device information to the Appaloosa servers. In case of an offline access to your app, the status is read from a protected file on the device.
@@ -55,16 +56,6 @@ The twice function have status in parameters. Use it and the ``Appaloosa.status`
 * NO_NETWORK
 * REQUEST_ERROR
 * UNKNOWN
-
-**Can not be returned because not exist on iOS*
-
-### Analytics
-
-To record analytics on your app usage, simply add the following line at the start of your application. Be careful to be authorized before with `Appaloosa.authorization` function.
-
-```
- Appaloosa.startAnalytics(functionOnSuccess,functionOnError);
-```
 
 
 ### Auto-Update
