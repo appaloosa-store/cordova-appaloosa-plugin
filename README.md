@@ -1,5 +1,4 @@
-# This SDK is now deprecated and won't be supported anymore. We've added features to update and remove app silently without the need of an SDK. 
-# Please contact us to learn more about these features.
+# This SDK is now deprecated and won't be supported anymore. We've added features to update and remove app silently without the need of an SDK. Please contact us at https://www.appaloosa-store.com to learn more about these features.
 
 
 # Apache Cordova Appaloosa Plugin 
