@@ -1,6 +1,4 @@
-Disclaimer:
-
-This software is an Alpha version. Use at your own risks.
+# This SDK is now deprecated and won't be supported anymore. We've added features to update and remove app silently without the need of an SDK. Please contact us to learn more about these features.
 
 
 # Apache Cordova Appaloosa Plugin 
